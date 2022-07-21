@@ -22,7 +22,7 @@ namespace Examen_17_07
             this.BackgroundImageLayout = ImageLayout.Stretch;
             //this.WindowState = FormWindowState.Maximized;
             //this.FormBorderStyle = FormBorderStyle.None;
-            Get_Icons();
+            //Get_Icons();
         }
 
         private void Desktop_Load(object sender, EventArgs e)
