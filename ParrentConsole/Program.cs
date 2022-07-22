@@ -32,10 +32,28 @@ namespace ParrentConsole
 
             //ProcessMonitor();
             ShowDisplay();
-            ProcessMonitor();  
+            //ProcessMonitor();  
 
             //TimerStart();
-           // ShowDisplay();
+            // ShowDisplay();
+            char choice = '9';
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Exit = 0");
+                try
+                {
+                    choice = char.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+
+                   
+                }
+                
+            } while (choice!='0');
+            if(choice=='0')Application.Exit();
+
             Console.ReadLine();
         }
         //static async void TimerStart()

@@ -65,6 +65,12 @@
     <Compile Include="GUI\Password_Form.Designer.cs">
       <DependentUpon>Password_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProcessInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ProcessInfoControl.Designer.cs">
+      <DependentUpon>ProcessInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Desktop.resx">
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Password_Form.resx">
       <DependentUpon>Password_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ProcessInfoControl.resx">
+      <DependentUpon>ProcessInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
