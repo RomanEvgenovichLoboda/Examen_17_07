@@ -1,4 +1,5 @@
 ﻿using Examen_17_07;
+using Examen_17_07.GUI;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ namespace ParrentConsole
 
             //ProcessMonitor();
             ShowDisplay();
+
+            //TimeMonitor();
             //ProcessMonitor();  
 
             //TimerStart();
@@ -74,6 +77,27 @@ namespace ParrentConsole
                 desktop.ShowDialog();  
             });
         }
+
+        static async void TimeMonitor()
+        {
+            //Task.Run(async () => {
+                while (true)
+                {
+                    foreach (ProcessInfoControl item in desktop.panelProcessGo.Controls)
+                    {
+                        if (TimeSpan.Parse(item.labelTime.ToString()) >= TimeSpan.FromMinutes(10))
+                        {
+                            if (!desktop.listBox_ProgramsRun.Items.Contains(item.labelProcessName))
+                                desktop.listBox_ProgramsRun.Items.Add(item.labelProcessName);
+                        }
+                    }
+                    await Task.Delay(1000);
+                }
+            
+            
+           // });
+        }
+
         public static void ProcessMonitor()
         {
              Task.Run(async() => {

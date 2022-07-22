@@ -80,10 +80,10 @@ namespace Examen_17_07
                                         if (!list_names.Contains(display_name)) 
                                         {
                                             list_names.Add(display_name);
-                                            listBox_ProgramsRun.Items.Add(display_name);
+                                            //listBox_ProgramsRun.Items.Add(display_name);
 
                                             Invoke(new Action(() => {
-                                                ProcessInfoControl processInfoControl = new ProcessInfoControl(item.StartTime, display_name, process_name, Y);
+                                                ProcessInfoControl processInfoControl = new ProcessInfoControl(this,item.StartTime, display_name, process_name, Y);
                                                 panelProcessGo.Controls.Add(processInfoControl); }));
 
                                             //ProcessInfoControl processInfoControl = new ProcessInfoControl(item.StartTime, display_name, Y);

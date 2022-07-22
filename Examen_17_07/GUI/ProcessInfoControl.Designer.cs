@@ -65,7 +65,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelTime;
-        private System.Windows.Forms.Label labelProcessName;
+        public System.Windows.Forms.Label labelTime;
+        public System.Windows.Forms.Label labelProcessName;
     }
 }

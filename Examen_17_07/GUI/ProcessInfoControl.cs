@@ -13,12 +13,14 @@ namespace Examen_17_07.GUI
 {
     public partial class ProcessInfoControl : UserControl
     {
+        Desktop desktop;
         TimeSpan timeSpan = new TimeSpan();
         TimeSpan durationSpan = TimeSpan.FromSeconds(1);
         string processName;
-        public ProcessInfoControl(DateTime time, string name,string pr_name,int y)
+        public ProcessInfoControl(Desktop dt,DateTime time, string name,string pr_name,int y)
         {
             InitializeComponent();
+            desktop = dt;
             timeSpan = DateTime.Now.ToUniversalTime() - time.ToUniversalTime();
             labelTime.Text = timeSpan.ToString().Remove(5); //time.ToShortTimeString(); 
             labelProcessName.Text = name;
@@ -27,22 +29,11 @@ namespace Examen_17_07.GUI
             //TimerStart();
             Timer timer = new Timer();
             timer.Interval = 1000;
-            timer.Tick += (async(s, e) => Monitoring());
+            timer.Tick += async(s, e) => Monitoring();
             timer.Start();
         }
-         
-        //void TimerStart()
-        //{
-        //    Invoke(new Action(() => {
-
-        //        Timer timer = new Timer();
-        //        timer.Interval = 100;
-        //        timer.Tick += ((s, e) => Monitoring());
-        //        timer.Start();
-        //    }));
-        //}
         
-        void Monitoring()
+        async void Monitoring()
         {
             bool procGo = false;
             foreach (var item in Process.GetProcessesByName(processName))
@@ -54,6 +45,12 @@ namespace Examen_17_07.GUI
                 timeSpan += durationSpan;
                 labelTime.Text = timeSpan.ToString().Remove(8);
             }
+            if(timeSpan>=TimeSpan.FromMinutes(10))
+            {
+                if (!desktop.listBox_ProgramsRun.Items.Contains(labelProcessName.Text))
+                    desktop.listBox_ProgramsRun.Items.Add(labelProcessName.Text);
+            }
+            
         }
     }
 }

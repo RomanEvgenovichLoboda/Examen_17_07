@@ -68,7 +68,7 @@
         #endregion
 
         public System.Windows.Forms.ListBox listBox_ProgramsRun;
-        private System.Windows.Forms.Panel panelProcessGo;
+        public System.Windows.Forms.Panel panelProcessGo;
     }
 }
 
