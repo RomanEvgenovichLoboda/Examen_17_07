@@ -57,7 +57,7 @@
             this.Controls.Add(this.labelProcessName);
             this.Controls.Add(this.labelTime);
             this.Name = "ProcessInfoControl";
-            this.Size = new System.Drawing.Size(285, 52);
+            this.Size = new System.Drawing.Size(335, 52);
             this.ResumeLayout(false);
             this.PerformLayout();
 

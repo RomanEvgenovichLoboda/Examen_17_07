@@ -83,7 +83,7 @@ namespace Examen_17_07
                                             listBox_ProgramsRun.Items.Add(display_name);
 
                                             Invoke(new Action(() => {
-                                                ProcessInfoControl processInfoControl = new ProcessInfoControl(item.StartTime, display_name, Y);
+                                                ProcessInfoControl processInfoControl = new ProcessInfoControl(item.StartTime, display_name, process_name, Y);
                                                 panelProcessGo.Controls.Add(processInfoControl); }));
 
                                             //ProcessInfoControl processInfoControl = new ProcessInfoControl(item.StartTime, display_name, Y);
