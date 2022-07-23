@@ -45,6 +45,23 @@ namespace Examen_17_07
             Password_Form passForm = new Password_Form();
             passForm.ShowDialog();
             if (!passForm.varif_Ok) { this.Close(); }
+
+            try
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Examen"))
+                {
+                    if(Password_Class.License_key == key.GetValue("Key").ToString())
+                    {
+                        button_Key.Visible = false;
+                        button_Statistic.Visible = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
        

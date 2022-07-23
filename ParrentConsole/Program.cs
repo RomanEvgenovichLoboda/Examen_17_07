@@ -26,7 +26,7 @@ namespace ParrentConsole
             ShowDisplay();
             ProcessMonitor(Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"));
             ProcessMonitor(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"));
-            ProcessKill();
+            //ProcessKill();
             char choice = '9';
             do
             {

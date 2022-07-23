@@ -24,7 +24,7 @@ namespace Examen_17_07.GUI
             processName = pr_name;
             timeSpan = DateTime.Now.ToUniversalTime() - time.ToUniversalTime();
             labelTime.Text = timeSpan.ToString().Remove(8); //time.ToShortTimeString(); 
-            labelProcessName.Text = $"({pr_name})" + name;
+            labelProcessName.Text = name; //$"({pr_name})" + name;
             Location = new Point(0,y);
             
             Timer timer = new Timer();
