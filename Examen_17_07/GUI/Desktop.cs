@@ -87,7 +87,18 @@ namespace Examen_17_07
 
         private void Desktop_FormClosing(object sender, FormClosingEventArgs e)
         {
-            File.AppendAllText(path, $"\tClosed - {DateTime.Now}");
+            try
+            {
+                foreach (ProcessInfoControl item in panelProcessGo.Controls)
+                {
+                    File.AppendAllText(path,"\n\t" + item.labelTime.Text + "-" + item.labelProcessName.Text);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            File.AppendAllText(path, $"\nClosed - {DateTime.Now}");
         }
     }
 }
