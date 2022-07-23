@@ -46,11 +46,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(90, 29);
+            this.label1.Location = new System.Drawing.Point(114, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 16);
+            this.label1.Size = new System.Drawing.Size(56, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Введите Пароль";
+            this.label1.Text = "Пароль";
             // 
             // textBox1
             // 
@@ -77,7 +77,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label label1;
     }
 }

@@ -23,12 +23,26 @@ namespace Examen_17_07.GUI
         {
             if(textBox1.Text != "")
             {
-                if(Password_Class.Varificaton(textBox1.Text))
-                { 
-                    varif_Ok=true;
-                    this.Close(); 
+                if (label1.Text == "Пароль")
+                {
+                    if (Password_Class.Varificaton(textBox1.Text))
+                    {
+                        varif_Ok = true;
+                        this.Close();
+                    }
+                    else { MessageBox.Show("Error Password"); }
                 }
-                else { MessageBox.Show("Error Passvord"); }
+                else
+                {
+                    if (Password_Class.Varif_Key(textBox1.Text))
+                    {
+                        varif_Ok = true;
+                        this.Close();
+                    }
+                    else { MessageBox.Show("Error Key"); }
+                }
+
+                
             }
         }
     }
