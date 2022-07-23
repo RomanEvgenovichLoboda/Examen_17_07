@@ -30,6 +30,7 @@
         {
             this.listBox_ProgramsRun = new System.Windows.Forms.ListBox();
             this.panelProcessGo = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // listBox_ProgramsRun
@@ -52,11 +53,25 @@
             this.panelProcessGo.Size = new System.Drawing.Size(407, 273);
             this.panelProcessGo.TabIndex = 1;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "60",
+            "300",
+            "720"});
+            this.comboBox1.Location = new System.Drawing.Point(487, 252);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 2;
+            // 
             // Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 298);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panelProcessGo);
             this.Controls.Add(this.listBox_ProgramsRun);
             this.Name = "Desktop";
@@ -70,6 +85,7 @@
 
         public System.Windows.Forms.ListBox listBox_ProgramsRun;
         public System.Windows.Forms.Panel panelProcessGo;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

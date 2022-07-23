@@ -18,11 +18,12 @@ namespace Examen_17_07
     public partial class Desktop : Form
     {
         int Y = 0;
-         List<string> list_names = new List<string>();
+        public List<string> list_Black = new List<string>();
         //public Timer timer = new Timer();
         public Desktop()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
             using (RegistryKey reg_key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop"))
                 this.BackgroundImage = Image.FromFile(reg_key.GetValue("WallPaper").ToString());
             this.BackgroundImageLayout = ImageLayout.Stretch;
@@ -102,7 +103,7 @@ namespace Examen_17_07
             Invoke(new Action(() => {
                 ProcessInfoControl processInfoControl = new ProcessInfoControl(this, dt, d_n, p_n, Y);
                 panelProcessGo.Controls.Add(processInfoControl);
-                Y += 50;
+                Y += 25;
             }));
         }
     }

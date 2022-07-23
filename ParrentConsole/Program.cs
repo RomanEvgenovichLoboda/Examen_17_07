@@ -24,12 +24,14 @@ namespace ParrentConsole
             Console.Title= "Parrent Control";
             
             ShowDisplay();
-            ProcessMonitor();  
+            ProcessMonitor(Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"));
+            ProcessMonitor(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"));
+            //ProcessKill();
             char choice = '9';
             do
             {
                 Console.Clear();
-                Console.WriteLine("Exit = 0");
+                Console.Write("Press 0 to Exit\t");
                 try
                 {
                     choice = char.Parse(Console.ReadLine());
@@ -47,11 +49,12 @@ namespace ParrentConsole
                 desktop.ShowDialog();  
             });
         }
-        public static void ProcessMonitor()
+        public static void ProcessMonitor(RegistryKey rk)
         {
              Task.Run(async() => {
-                //using (RegistryKey reg_key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-                 using (RegistryKey reg_key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
+                 //using (RegistryKey reg_key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
+                 //using (RegistryKey reg_key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
+                 using (RegistryKey reg_key = rk)
                  {
                     string[] arr_app_names = reg_key.GetSubKeyNames();
                     while (true)
@@ -77,10 +80,30 @@ namespace ParrentConsole
                                 }
                             }
                         }
-                        await Task.Delay(1);
+                        await Task.Delay(1000);
                     }
                  }
             });
+        }
+        public static void ProcessKill()
+        {
+            Task.Run(async () => {
+                while (true)
+                {
+                    foreach (var black_name in desktop.list_Black)
+                    {
+                        if (black_name != "devenv")
+                        {
+                            foreach (var item in Process.GetProcessesByName(black_name))
+                            {
+                                item.Kill();
+                            }
+                        }
+                    }
+                    await Task.Delay(1000);
+                }
+            });
+            
         }
     }
 }

@@ -35,7 +35,7 @@
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(4, 17);
+            this.labelTime.Location = new System.Drawing.Point(3, 0);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(44, 16);
             this.labelTime.TabIndex = 0;
@@ -44,7 +44,7 @@
             // labelProcessName
             // 
             this.labelProcessName.AutoSize = true;
-            this.labelProcessName.Location = new System.Drawing.Point(100, 17);
+            this.labelProcessName.Location = new System.Drawing.Point(95, 0);
             this.labelProcessName.Name = "labelProcessName";
             this.labelProcessName.Size = new System.Drawing.Size(44, 16);
             this.labelProcessName.TabIndex = 1;
@@ -57,7 +57,7 @@
             this.Controls.Add(this.labelProcessName);
             this.Controls.Add(this.labelTime);
             this.Name = "ProcessInfoControl";
-            this.Size = new System.Drawing.Size(335, 52);
+            this.Size = new System.Drawing.Size(386, 24);
             this.ResumeLayout(false);
             this.PerformLayout();
 
