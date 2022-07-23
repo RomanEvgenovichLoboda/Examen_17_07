@@ -90,6 +90,7 @@
             this.button_Statistic.Text = "Statistic";
             this.button_Statistic.UseVisualStyleBackColor = true;
             this.button_Statistic.Visible = false;
+            this.button_Statistic.Click += new System.EventHandler(this.button_Statistic_Click);
             // 
             // Desktop
             // 
@@ -103,6 +104,7 @@
             this.Controls.Add(this.listBox_ProgramsRun);
             this.Name = "Desktop";
             this.Text = "Desktop";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Desktop_FormClosing);
             this.Load += new System.EventHandler(this.Desktop_Load);
             this.ResumeLayout(false);
 

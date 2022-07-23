@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,10 +18,9 @@ namespace Examen_17_07.GUI
             desktop = dt;
             processName = pr_name;
             timeSpan = DateTime.Now.ToUniversalTime() - time.ToUniversalTime();
-            labelTime.Text = timeSpan.ToString().Remove(8); //time.ToShortTimeString(); 
-            labelProcessName.Text = name; //$"({pr_name})" + name;
+            labelTime.Text = timeSpan.ToString().Remove(8); 
+            labelProcessName.Text = name;
             Location = new Point(0,y);
-            
             Timer timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += ((s, e) => { Monitoring(); });

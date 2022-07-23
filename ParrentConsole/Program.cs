@@ -1,17 +1,11 @@
 ﻿using Examen_17_07;
-using Examen_17_07.GUI;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-//using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Threading;
-//using System.Timers;
 
 namespace ParrentConsole
 {
@@ -26,7 +20,7 @@ namespace ParrentConsole
             ShowDisplay();
             ProcessMonitor(Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"));
             ProcessMonitor(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"));
-            //ProcessKill();
+            ProcessKill();
             char choice = '9';
             do
             {
@@ -52,8 +46,6 @@ namespace ParrentConsole
         public static void ProcessMonitor(RegistryKey rk)
         {
              Task.Run(async() => {
-                 //using (RegistryKey reg_key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-                 //using (RegistryKey reg_key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
                  using (RegistryKey reg_key = rk)
                  {
                     string[] arr_app_names = reg_key.GetSubKeyNames();
@@ -73,8 +65,7 @@ namespace ParrentConsole
                                         if (!list_names.Contains(display_name)) 
                                         {
                                             list_names.Add(display_name);
-
-                                                desktop.AddControl(item.StartTime, display_name, process_name);
+                                            desktop.AddControl(item.StartTime, display_name, process_name);
                                         }
                                     }
                                 }
@@ -103,7 +94,6 @@ namespace ParrentConsole
                     await Task.Delay(1000);
                 }
             });
-            
         }
     }
 }
