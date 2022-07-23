@@ -34,11 +34,12 @@
             // 
             // listBox_ProgramsRun
             // 
+            this.listBox_ProgramsRun.BackColor = System.Drawing.Color.IndianRed;
             this.listBox_ProgramsRun.FormattingEnabled = true;
             this.listBox_ProgramsRun.ItemHeight = 16;
-            this.listBox_ProgramsRun.Location = new System.Drawing.Point(563, 12);
+            this.listBox_ProgramsRun.Location = new System.Drawing.Point(487, 13);
             this.listBox_ProgramsRun.Name = "listBox_ProgramsRun";
-            this.listBox_ProgramsRun.Size = new System.Drawing.Size(207, 212);
+            this.listBox_ProgramsRun.Size = new System.Drawing.Size(326, 212);
             this.listBox_ProgramsRun.TabIndex = 0;
             // 
             // panelProcessGo
@@ -55,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 298);
+            this.ClientSize = new System.Drawing.Size(825, 298);
             this.Controls.Add(this.panelProcessGo);
             this.Controls.Add(this.listBox_ProgramsRun);
             this.Name = "Desktop";

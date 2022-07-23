@@ -22,14 +22,13 @@ namespace Examen_17_07.GUI
             InitializeComponent();
             desktop = dt;
             timeSpan = DateTime.Now.ToUniversalTime() - time.ToUniversalTime();
-            labelTime.Text = timeSpan.ToString().Remove(5); //time.ToShortTimeString(); 
+            labelTime.Text = timeSpan.ToString().Remove(8); //time.ToShortTimeString(); 
             labelProcessName.Text = name;
             Location = new Point(0,y);
             processName = pr_name;
-            //TimerStart();
             Timer timer = new Timer();
             timer.Interval = 1000;
-            timer.Tick += async(s, e) => Monitoring();
+            timer.Tick += (async(s, e) => { Monitoring(); });
             timer.Start();
         }
         
@@ -50,7 +49,7 @@ namespace Examen_17_07.GUI
                 if (!desktop.listBox_ProgramsRun.Items.Contains(labelProcessName.Text))
                     desktop.listBox_ProgramsRun.Items.Add(labelProcessName.Text);
             }
-            
+            await Task.Delay(1);
         }
     }
 }

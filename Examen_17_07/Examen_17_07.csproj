@@ -53,12 +53,6 @@
     <Compile Include="GUI\Desktop.Designer.cs">
       <DependentUpon>Desktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Icon_Control.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Icon_Control.Designer.cs">
-      <DependentUpon>Icon_Control.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Password_Form.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -15,30 +15,16 @@ using System.Windows.Threading;
 
 namespace ParrentConsole
 {
-   public class Program2
+    public class Program2
     {
         static List<string> list_names = new List<string>();
         static Desktop desktop = new Desktop();
-        //static Timer timer = new Timer();
         static void Main(string[] args)
         {
-            //DispatcherTimer timer = new DispatcherTimer();
-            //Timer timer = new Timer();
-            //timer.Interval = TimeSpan.FromSeconds(1);
-           // timer.Tick += ((s, e) => ProcessMonitor());
-            //timer.Start();
-
-            //desktop.timer.Tick+= ((s, e) => ProcessMonitor());
-            //desktop.timer.Start();
-
-            //ProcessMonitor();
+            Console.Title= "Parrent Control";
+            
             ShowDisplay();
-
-            //TimeMonitor();
-            //ProcessMonitor();  
-
-            //TimerStart();
-            // ShowDisplay();
+            ProcessMonitor();  
             char choice = '9';
             do
             {
@@ -48,62 +34,25 @@ namespace ParrentConsole
                 {
                     choice = char.Parse(Console.ReadLine());
                 }
-                catch (Exception)
-                {
-
-                   
-                }
+                catch (Exception) { }
                 
             } while (choice!='0');
             if(choice=='0')Application.Exit();
 
             Console.ReadLine();
         }
-        //static async void TimerStart()
-        //{
-        //    await Task.Run(async () =>
-        //    {
-        //        Timer timer = new Timer();
-        //        timer.Interval = 100;
-        //        timer.Tick += ((s, e) => ProcessMonitor());
-        //        timer.Start();
-        //        await Task.Delay(1);
-        //    });
-        //}
-
         static void ShowDisplay()
         {
              Task.Run(() => {
                 desktop.ShowDialog();  
             });
         }
-
-        static async void TimeMonitor()
-        {
-            //Task.Run(async () => {
-                while (true)
-                {
-                    foreach (ProcessInfoControl item in desktop.panelProcessGo.Controls)
-                    {
-                        if (TimeSpan.Parse(item.labelTime.ToString()) >= TimeSpan.FromMinutes(10))
-                        {
-                            if (!desktop.listBox_ProgramsRun.Items.Contains(item.labelProcessName))
-                                desktop.listBox_ProgramsRun.Items.Add(item.labelProcessName);
-                        }
-                    }
-                    await Task.Delay(1000);
-                }
-            
-            
-           // });
-        }
-
         public static void ProcessMonitor()
         {
              Task.Run(async() => {
                 //using (RegistryKey reg_key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-                using (RegistryKey reg_key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
-                {
+                 using (RegistryKey reg_key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"))
+                 {
                     string[] arr_app_names = reg_key.GetSubKeyNames();
                     while (true)
                     {
@@ -121,25 +70,17 @@ namespace ParrentConsole
                                         if (!list_names.Contains(display_name)) 
                                         {
                                             list_names.Add(display_name);
-                                            desktop.listBox_ProgramsRun.Items.Add(display_name);
-                                            Console.WriteLine(display_name);
+
+                                                desktop.AddControl(item.StartTime, display_name, process_name);
                                         }
-                                        //Console.WriteLine(display_name);
                                     }
                                 }
                             }
                         }
-                        //list_names.ForEach(Console.WriteLine);
-
-                        //desktop.listBox_ProgramsRun.Items.AddRange(list_names.ToArray());
-                        await Task.Delay(1000);
+                        await Task.Delay(1);
                     }
-                    
-                    //desktop.ShowDialog();
-                }
-                
+                 }
             });
-            
         }
     }
 }
